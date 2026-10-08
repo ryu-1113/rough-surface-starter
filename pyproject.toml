@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rough-surface-starter"
+version = "0.1.0"
+description = "Synthetic rough surface generation, artifact simulation and correction baselines"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+train = ["torch>=2.2"]
+
+[project.scripts]
+roughsurface-build = "roughsurface.build:main"
+roughsurface-verify = "roughsurface.verify:main"
+roughsurface-evaluate = "roughsurface.evaluate:main"
+roughsurface-train = "roughsurface.train:main"
+
+[tool.setuptools.packages.find]
+include = ["roughsurface*"]
